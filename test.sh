@@ -1,10 +1,12 @@
 #!/bin/bash
 
 regex=''\
-'^([a-z0-9\-]+)[\-lp1|dd1|sp1]?\.hac(\.lp1|dd1|sp1)?\.(dragons|d4c|eshop|shop)\.(nintendo\.net|n\.nintendoswitch\.cn)'\
-'|^([a-z0-9\-]+)[\.\-]?(lp1|dd1|sp1)\.([a-z0-9\-\.]+)\.srv\.nintendo\.net$'\
-'|^[a-z0-9\-\.]*\.nintendo\.(com|net)'\
+'^([a-z0-9\-]+)?[\-lp1|dd1|sp1]?(\.hac)?(\.lp1|dd1|sp1)?\.(dragons|d4c|eshop|shop)\.(nintendo\.net|n\.nintendoswitch\.cn)'\
+'|^([a-z0-9\.\-]+\.)?cdn(\.accounts|\.)+nintendo\.(net|com)'\
+'|^([a-z0-9\-]+)[\.\-]?(lp1|dd1|sp1)?\.([a-z0-9\-\.]+)\.srv\.nintendo\.(net|com)'\
 '|^ngs-[a-f0-9]+-live\.s3\.amazonaws\.com'\
+'|baas\.nintendo\.(com|net)'\
+'|(accounts|moon|nso|five|mng|op2)\.nintendo\.(com|net)'\
 '|epicgames\.(com|dev)|sumo-services.co.uk'
 
 domain_regex=''\

@@ -15,12 +15,12 @@ The current regex to block all traffic to nintendo servers is:
 
 To block all CDN/eShop access:
 ```
-^([a-zA-Z0-9-]+)[-lp1|dd1|sp1]?\.hac(\.lp1|dd1|sp1)?\.(dragons|d4c|eshop|shop)\.(nintendo\.net|n\.nintendoswitch\.cn)$
+^([a-zA-Z0-9-]+)[-lp1|dd1|sp1]?\.hac(\.lp1|dd1|sp1)?\.(dragons|d4c|eshop|shop)\.(nintendo\.net|n\.nintendoswitch\.cn)$|cdn\.(a-z\.)+?nintendo
 ```
 
 To block all Service access:
 ```
-^([a-zA-Z0-9-]+)[.-]?(lp1|dd1|sp1)\.([a-zA-Z0-9-.]+)\.srv\.nintendo\.net$
+^([a-zA-Z0-9-]+)[.-]?(lp1|dd1|sp1)\.([a-zA-Z0-9-.]+)\.srv\.nintendo\.net$|baas\.nintendo\.(com|net)$
 ```
 
 To block access to Big N completely:
@@ -36,3 +36,7 @@ epicgames\.(com|dev)$|sumo-services.co.uk$
 If you don't have a Pi-Hole and aren't currently using [DNS-MITM](https://github.com/Atmosphere-NX/Atmosphere/blob/master/docs/features/dns_mitm.md), then you can also use that instead. This repo is purely for the paranoid ones (like me).
 
 To test if this regex matches all of the domains in the file, run `test.sh list.txt`, it will check every domain.
+Current testing regex:
+```
+^([a-z0-9\-]+)?[\-lp1|dd1|sp1]?(\.hac)?(\.lp1|dd1|sp1)?\.(dragons|d4c|eshop|shop)\.(nintendo\.net|n\.nintendoswitch\.cn)$|^([a-z0-9\.\-]+\.)?cdn(\.accounts|\.)+nintendo\.(net|com)$|^([a-z0-9\-]+)[\.\-]?(lp1|dd1|sp1)?\.([a-z0-9\-\.]+)\.srv\.nintendo\.(net|com)$|^ngs-[a-f0-9]+-live\.s3\.amazonaws\.com$|baas\.nintendo\.(com|net)$|(accounts|moon|nso|five|mng|op2)\.nintendo\.(com|net)$|epicgames\.(com|dev)|sumo-services.co.uk$
+```
